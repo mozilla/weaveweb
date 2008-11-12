@@ -1,0 +1,67 @@
+body {
+    font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+.msg td {
+    font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+#message {
+    float: left;
+    background-color: #fd553b;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 10px;
+	margin-bottom: 2px;
+	padding: 6px 6px 6px 6px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	visibility: hidden;
+}
+
+.user-msg {
+    float: right;
+}
+
+.img-footer {
+    float: right;
+    margin-top: 10px;
+}
+
+.tbcen {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-spacing: 50px;
+}
+/*
+.yui-push-button {
+    float: right;
+}
+
+.yui-push-button button {
+    text-indent: 1.5em;
+    background: url(../images/log-out.png) 10% 50% no-repeat;
+}
+*/
+
+.bmkLink {
+    background-color: none;
+}
+
+.bmkHead {
+    color: #fd553b;
+    text-decoration: none;
+}
+
+.tabLink {
+    font: 16px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+.yui-skin-sam .mask {
+    background-color:#000;
+    opacity:.80;
+    *filter:alpha(opacity=80);
+}

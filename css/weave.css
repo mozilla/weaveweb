@@ -1,0 +1,89 @@
+* {
+    margin: 0; padding: 0;
+}
+
+body {
+  /* background: url('images/background.png'); */
+	border-top-width: 10px;
+	border-top-style: solid;
+	border-top-color: #1c326a;
+	font: 14px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctext {
+  text-align: center;
+}
+
+.small {
+  font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+.error {
+  background-color: #fd553b;
+	margin-left: 0px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	padding: 16px 16px 16px 16px;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.box {
+  background-color: #9698af;
+	padding: 16px 16px 10px 16px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.box p {
+  margin-bottom: 24px;
+}
+
+#content {
+  width: 400px;
+  margin: 3em auto;
+  /* position: absolute;
+  top: 0px;
+  left: 25%; */
+}
+
+#footer {
+  margin-top: 10px;
+  text-align: center;
+  float: bottom;
+}
+
+form p {
+  margin-bottom: 24px;
+}
+form input {
+  font-size: 20px;
+}
+form .submit {
+  float: right;
+}
+
+#user_login, #user_pass, #user_pass2 {
+	font-size: 20px;
+	width: 97%;
+	padding: 3px;
+	margin-right: 6px;
+}

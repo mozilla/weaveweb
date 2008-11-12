@@ -1,0 +1,103 @@
+* {
+    margin: 0; padding: 0;
+}
+
+body {
+	border-top-width: 10px;
+	border-top-style: solid;
+	border-top-color: #1c326a;
+	font: 12px "Lucida Grande", "Lucida Sans Unicode", Tahoma, Verdana, sans-serif;
+}
+
+#icon {
+    padding-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    padding-top: 25px;
+    float: right;
+}
+
+form {
+    background-color: #9698af;
+	margin-left: 8px;
+	padding: 16px 16px 40px 16px;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+form .yui-button {
+    float: right;
+}
+
+form p {
+    margin-bottom: 24px;
+}
+
+#rsubm {
+    float: right;
+}
+
+#register {
+    font-weight: normal;
+    float: left;
+    margin-bottom: 0;
+}
+
+#login {
+    width: 400px;
+    margin: 3em auto;
+}
+
+#error {
+    background-color: #fd553b;
+	margin-left: 8px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	padding: 16px 16px 16px 16px;
+	font-weight: bold;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: none;
+}
+
+#error ul {
+    padding-left: 10px;
+}
+
+#user_pass, #user_login, #user_pass2, #user_email, #user_email2 {
+	font-size: 20px;
+	width: 97%;
+	padding: 3px;
+	margin-right: 6px;
+}
+
+#cMail {
+    display: none;
+}
+
+#user_server {
+	font-size: 14px;
+	width: 97%;
+	padding: 3px;
+	margin-right: 6px;
+}
+
+.yui-skin-sam .mask {
+    background-color:#000;
+    opacity:.80;
+    *filter:alpha(opacity=80);
+}
+
+#footer {
+    margin-top: 10px;
+    text-align: center;
+}

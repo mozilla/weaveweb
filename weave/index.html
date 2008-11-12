@@ -1,0 +1,56 @@
+<html>
+<head>
+  <script type="text/javascript" src="util.js"></script>
+  <script type="text/javascript" src="pkcs5v2.js"></script>
+  <script type="text/javascript" src="aes.js"></script>
+  <script type="text/javascript" src="asn1.js"></script>
+  <script type="text/javascript" src="rsa/jsbn.js"></script>
+  <script type="text/javascript" src="rsa/jsbn2.js"></script>
+  <script type="text/javascript" src="rsa/prng4.js"></script>
+  <script type="text/javascript" src="rsa/rng.js"></script>
+  <script type="text/javascript" src="rsa/rsa.js"></script>
+  <script type="text/javascript" src="rsa/rsa2.js"></script>
+  <script type="text/javascript">
+    function display() {
+      /* Step 1: Generate Key from salt and passphrase */
+      var passphrase = 'woo';
+      var salt = 'Pftse0W5hLs5KWMMTAf+fsaqz8hcWzq5AdQaoHunsvs=';
+			var key = Weave.Crypto.PKCS5.generate(passphrase, Weave.Util.Base64.decode(salt), 4096, 32);
+
+			/* Step 2: Unwrap RSA private key with AES decryption */
+			var pKey = 'I9fsEmJy4jiBh8vQD30sltuGDqaHVyA94BRNcwxNqdPItjlitphvQcL+//UgTeo+uzsTZRixc5k1Z+63B9jVFQHebyg/CRRv6wERhdz9zWzDhsq0MUvMl3WqpDVJis/if/RhKRUv+EHW1jTOvBFhXQWhOI9wkvZS+kYvOv5q6xFklp2Ahz9U6cut1ADVMlKL0LqSiQEBh5SpP7qhY88f+dAVhI7wHSeYiARP5U3TpPMd8l5VfoaMjW2I0UKk7QhrG8YtFur5KAoiavHDTFt4RH2AFEvPuDZ2Pk9XbLgpwijOSe1ug+XdYHHyFtiCCmgS6TN6Vl8tjOZgJ4YQTNTrwydp/Aasz4G5RXFuHIY53oMqElM0SEaW7cmUNqNoaxOK62LNKcaJ4tHQJ2IRTLDETTF1sBkhS0v4/jgmmXsUCAw8ap/eUrgWfY3FzuF6MGWJaVSMJRu/A64cq6vPdS1JNX5s/kDmu//suhFQ9NaHPn3b3udnK80gR0OB33GECn+5W6qUM1CGWxZnyb0BPr8N/9/ewttKD+nTfKXmARLPRypwqqBFo19e/S7R441p3tmArq1NuM61JLOSn8EJ/NnfS3AEW3Xwl2StZHAGAXieNCP3CyEU8DCWwymNMoFhaZN682Da6n6QcFZv39V4GkRqziTDfqV/xX7psR8WJgkWTxIkuiCY/Tw6dZDIWAC2Sem6lKd393hGB8RsZ6weyzrbQe8tZJfnFEcKEPPMhDYVj0Hl8HrFmqwxboxUYLum1BYBSrKzp5geUNbsYIR9ec975PfZgr+RtoHOpE5WXGJ0ufSPxg8AuUX+zaIyR/VUJobgnQuwxQZPaAzxXgnT9biKJCMDTx3QZ85Cw2jknfpnR5lo1iwIL6bM7SB/aM3WoJIFVpvSMoBx/TorjrFy3fDMVJiG4VIaagahuk6rkRs8oHtyCwKNMHqCnbXHxa2gU4mlLh10n8ycrwjTSgl2t2E6JOHQkNi17B/wQt6HAg2fTCqj09Enf2uzj0xdP/eEK4JDFzj2mTT+7+icrm8vS6zELwspBAo9A/f4q5iqTSU9bO1ko1nbqwfxaZN5V1tvEyltxrIWFFG/CwKBARfiinnbFhs/6MBLHjk3Spm+MuHYoTZxvKJsNJrs7F7Q24i8dgUWrRvn0rOqmOt0Uw2PGLTLBETm0PgLpZIckq7tKROeAHKU++w/cRZyaVYwF5EI3FkgbX1FSbrzgElLICLExdP+NqWGHJ5E+Dy/rzM7yTO+3kA2ly9QDr/pYg7QcBRoU41PMSHJkSb8Jwpx+GJtT/4RqLSspI243TS2DWQY+LIHQFOSvYNz0pCP4QYll2ohhfxiy2YRWHmkgiFNdNhHMcliBwaTIve/E7ND8B1TiA7fgT14KInfsf55B/DwC0l4gdfuvAEE+473UyDH9GCk0Fum0HKmkrmKivyLPO/R7MkiPM0mZ03Ej80vRxjbKSgIkdNTWPaWar7vzjJvQPBazQPItIugLjXhSUj+djdSxQ9LtXd65YOy3GKjpGm+2zuT1i/CEPy/ovk4pn0qx1hNgsBQ0hHr15xYgF2ko3NQvEAVrG5hluwOvgVTGypmq86d3P8NSTg63x8DN4p7xwbhbHX/iXaDrI+3kk1yzcuQwLB3ffg=';
+			var iv = 'XdXSOPzWGQeWti8Xfc+CEw==';
+      var rKey = Weave.Util.Base64.decode(pKey);
+      var rIV = Weave.Util.Base64.decode(iv);
+      var upKey = Weave.Crypto.AES.decrypt(key, rIV, rKey);
+      
+		  alert(Weave.Util.Base64.encode(upKey));	
+
+			/*
+      var tag = Weave.Crypto.ASN1.PKCS1.parse(Weave.Util.Base64.decode(upKey));      
+      var usymKey = Weave.Util.StH(Weave.Util.Base64.decode(symKey));
+      
+      var rsa = new RSAKey();
+      rsa.setPrivateEx(tag[0], tag[1], tag[2], tag[3], tag[4], tag[5], tag[6], tag[7]);
+      var dsymKey = rsa.decrypt(usymKey);
+      dsymKey = Weave.Util.intify(dsymKey);
+      
+      var rbmks = Weave.Util.Base64.decode(bmks);
+      var rsyiv = Weave.Util.Base64.decode(symIV);
+      var decoded = Weave.Crypto.AES.decrypt(dsymKey, rsyiv, rbmks);
+			alert(decoded);
+			*/
+    }
+  </script>
+</head>
+<body>
+  <form id="myform" name="myform">
+    <label>Enter Passphrase and click generate: </label><input type="text" name="passphrase" id="passphrase" /><br />
+    <label>Generated Key: </label><input type="text" name="key" id="key" /><br />
+    <label>Unwrapped RSA: </label><textarea name="rsa" id="rsa"></textarea><br />
+    <label>RSA Deep Hex: </label><textarea name="rsadeep" id="rsadeep"></textarea><br />
+    <input type="button" value="Generate!" onclick="display();" />
+  </form>
+</body>
+</html>
+  
