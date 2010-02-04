@@ -1,0 +1,28 @@
+#login-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -10em;
+  margin-top: -125px;
+  z-index: 0;
+}
+#login-div[hidden="true"] {
+  display: none;
+  z-index: -1;
+}
+td.firstColumn {
+  min-width: 6em;
+  text-align: right;
+  font-size: small;  
+}
+tr.lastRow {
+  height: 5em;
+}
+#errorMessage {
+  color: red;
+  font-size: smaller;
+  opacity: 0;
+}
+#errorMessage[visible="true"] {
+  opacity: 1;
+}

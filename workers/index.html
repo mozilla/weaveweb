@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Mozilla Labs Weave</title>
+    <link rel="stylesheet" type="text/css" href="./style/main.css" />
+    <link rel="stylesheet" type="text/css" href="./style/login.css" />
+
+    <script type="text/javascript" src="./javascripts/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="./javascripts/blockUI-2.17.js"></script>
+	<script type="text/javascript" src="./javascripts/jquery.scrollTo-min.js"></script>
+	<script type="text/javascript" src="./javascripts/jquery.json-1.3.min.js"></script>
+	<script type="text/javascript" src="./util.js"></script>
+	<script type="text/javascript" src="./javascripts/worker/Worker.js"></script>
+	<script type="text/javascript" src="./javascripts/worker/WebWorker.js"></script>
+	<script type="text/javascript" src="./javascripts/worker/GearsWorker.js"></script>
+    <script type="text/javascript" src="./javascripts/worker/TimeoutWorker.js"></script>
+
+    <script type="text/javascript" src="./javascripts/actions.js"></script>
+    <script type="text/javascript" src="./javascripts/autosuggest.js"></script>
+    <script type="text/javascript" src="./javascripts/suggestions.js"></script>
+  </head>
+
+  <body onload="Weave.Actions._init();">
+    <!-- Part 1: the sign in view. -->
+    <div id="login-div">
+      <img src="./style/logo.png"
+        alt="Weave" />
+      <form onSubmit="Weave.Actions.signIn();return false;">
+	<table id="login-table">
+	  <tr>
+	    <td/>
+	    <td id="errorMessage">
+	      Invalid credentials.
+	    </td>
+	  </tr>
+	  <tr>
+	    <td class="firstColumn">Username</td>
+	    <td>
+	      <input id="username" type="text"/>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td class="firstColumn">Password</td>
+	    <td>
+	      <input id="password" type="password"/>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td class="firstColumn">Passphrase</td>
+	    <td>
+	      <input id="passphrase" type="password"/>
+	    </td>
+	  </tr>
+	  <tr class="lastRow">
+	    <td></td>
+	    <td align="right">
+	      <input type="submit" value="Sign In"/>
+	    </td>
+	  </tr>
+	</table>
+      </form>
+      <img src="./style/star.png" style="display:none"/>
+      <img src="./style/tag.png" style="display:none"/>
+    </div>
+
+    <!-- Part 2: the main view, where the searches can be performed. -->
+    <div id="main-view-div" hidden="true">
+      <div id="topbar">
+        <div class="topbar-left">
+          <img id="weave-logo" src="./style/logo-16x16.png"
+            onclick="location.href = 'https://services.mozilla.com/';" />
+	  <span id="username-placeholder">Username</span>
+        </div>        
+        <div class="topbar-right">
+          <a href="./signOut.html">Sign out</a>
+        </div>
+      </div>
+
+      <div id="search-div">
+        <div id="message-container">
+	  <div id="still-loading-message">
+	    <span>We are still decrypting your data, therefore some of your bookmarks/history may not yet appear in the search...</span>
+	    <img src="./style/throbber.gif"/>
+	  </div>
+        </div>
+        <div id="search-textbox-container">
+	  <input id="search-textbox" value="Search Bookmarks and History"
+              title="Search Bookmarks and History"	      
+              name="searchBox" maxlength="2048" />        
+        </div>
+	<div id="suggestions"/>
+      </div>
+    </div>
+
+    <!-- Part 3: Image shown when processing the data. -->
+    <table id="processing-div">
+      <tr>
+        <td>
+          <img style="height: 40px; width: 40px;"
+	    src="./style/gear-animated.gif" />
+        </td>
+        <td>
+          Accessing and decrypting your data...
+        </td>
+      </tr>
+    </table>
+
+    <div id="temp">
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,163 @@
+body {
+  font-family: Verdana;
+}
+
+#main-view-div {
+  z-index: 0;
+}
+#main-view-div[hidden="true"] {
+  display: none;
+  z-index: -1;
+}
+#topbar {
+  width:100%;
+  height: 16px;
+  font-size: small;
+  padding-bottom: 5px;
+  border-bottom: double #acacac;
+  vertical-align: middle;
+  display: block;
+}
+.topbar-left {
+  vertical-align: middle;
+  display:inline;
+}
+.topbar-right {
+  float:right;
+  vertical-align: middle;
+  position: relative;
+}
+#weave-logo {
+  width: 16px;
+  height: 16px;  
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+#username-placeholder {
+  font-weight: bold;
+}
+#search-div {    
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width:60%;
+  min-width: 490px;
+}
+
+#search-textbox-container {
+  bottom:2px;
+}
+#search-textbox {
+  color: black;
+  width: 100%;
+}
+#search-textbox[defaultText="true"] {
+  color: #c3c3c3;  
+}
+
+#message-container {
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;  
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+#still-loading-message {    
+  color: #DB8E08;  
+  display: none;
+}
+
+#processing-div {
+  display: none;
+}
+.spacedColumn {
+  margin: 7px;
+}
+
+/* Styles for the suggestions. */
+#suggestions {  
+  border: 1px solid #ececec;
+  position: relative;
+  display: none;
+  width: 100%;
+  max-height: 190px;
+  overflow-x:hidden;
+  overflow-y:auto;
+  white-space:nowrap;
+}
+.suggestion {
+  cursor: default;
+  padding: 2px 4px;
+  border-bottom: 1px solid #E1E1E1;
+  background-color: #FFFFFF;
+}
+.suggestion > .top {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  min-height: 16px;
+  max-height: 19px;
+}
+.suggestion > .top > * {
+  vertical-align: middle;
+}
+
+.suggestion > .top > .suggestion-title {
+  display: inline-block;  
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.suggestion > .top > .suggestion-bookmark-info {    
+  position: absolute;
+  top: -1px;
+  right: 2px;
+  display: inline-block;
+  background-image: url("star.png");
+  background-repeat:no-repeat;
+  background-position:top right;
+  min-width: 16px;
+  min-height: 20px;
+  overflow: hidden;  
+}
+
+.suggestion > .top > .suggestion-bookmark-info[hasTags="true"] {    
+  padding-right: 18px;
+}
+
+.suggestion[selected="true"] > .top > .suggestion-bookmark-info {  
+  background-image: url("star_over.png");
+  background-repeat:no-repeat;
+  background-position:top right;
+}
+
+.suggestion > .top > .suggestion-bookmark-info > .suggestion-tags {
+  display: inline-block;
+  position:absolute;
+  right: 20px;
+  background-image: url("tag.png");
+  background-repeat:no-repeat;
+  background-position:center left;    
+  padding-left: 20px;
+  overflow: hidden;  
+}
+
+.suggestion > .bottom {
+  font-size: 11px;
+  font-weight: 500;
+  color: #2b5ab0;
+}
+.suggestion[selected="true"] {
+  background-color: #3366cc;
+}
+.suggestion[selected="true"] > .top,
+.suggestion[selected="true"] > .bottom {
+  color: #FFFFFF;
+}
+.match {
+  text-decoration: underline;
+  font-weight: 900;
+}
