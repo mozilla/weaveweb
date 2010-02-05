@@ -1,15 +1,17 @@
 <?php
 header('Content-Type: text/plain');
-$username = $_GET['username'];
-$password = $_GET['password'];
-$url = $_GET['url'];
+
+// we use POST instead of GET because bodies are encrypted in HTTPS
+$username = $_POST['username'];
+$password = $_POST['password'];
+$url = $_POST['url'];
 
 
 // append all other parameters to the url
 $additionalParams = '';
 $separator = '?';
 
-foreach ($_GET as $key => $value) {
+foreach ($_POST as $key => $value) {
   if (($key != 'username') && ($key != 'password') &&
       ($key != 'url')) {
     $additionalParams = $additionalParams . $separator . $key . '=' .$value;

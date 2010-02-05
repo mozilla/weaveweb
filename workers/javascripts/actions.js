@@ -9,7 +9,7 @@ var WV_MAX_OBJECTS_PER_REQUEST = 10;
 
 var WV_VERSION = "1.0";
 var WV_USER_SERVER = "https://auth.services.mozilla.com/user/" + WV_VERSION;
-var WV_PROXY_PAGE = "http://localhost/wnew/proxy.php";
+var WV_PROXY_PAGE = "proxy.php";
 
 
 Weave.Actions = {
@@ -300,7 +300,7 @@ Weave.Actions = {
 
     $.ajax(
       {
-        url: aURL, method: "GET", data: stringOfDdata,
+        url: aURL, type: "POST", data: stringOfDdata,
         success: aLoadedHandler, error: aErrorHandler
       });
   },
